@@ -15,3 +15,10 @@ elasticsearch:
       - "9200:9200"
       - "9300:9300"
   command: elasticsearch -Des.node.name="logstash"
+
+lostash:
+  image: logstash
+  container_name: logstash
+  restart: always
+  net: host
+  command: logstash agent
