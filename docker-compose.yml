@@ -32,5 +32,8 @@ kibana:
       - "5601:5601"
   environment:
       ELASTICSEARCH_URL: http://10.0.2.15:9200/
-# links:
-#     - elasticsearch
+# log_driver: "gelf"
+# log_opt:
+#   gelf-address=udp://host:port
+#   gelf-tag="kibana"
+
