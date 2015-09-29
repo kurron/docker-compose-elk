@@ -16,9 +16,21 @@ elasticsearch:
       - "9300:9300"
   command: elasticsearch -Des.node.name="logstash"
 
-lostash:
+logstash:
   image: logstash
   container_name: logstash
   restart: always
   net: host
   command: logstash agent
+
+kibana:
+  image: kibana
+  container_name: kibana
+  restart: always
+  net: host
+  ports:
+      - "5601:5601"
+  environment:
+      ELASTICSEARCH_URL: http://10.0.2.15:9200/
+# links:
+#     - elasticsearch
