@@ -24,13 +24,17 @@ logstash:
 # net: host
   expose:
       - "25826"
+      - "12201"
   ports:
       - "1234:25826"
       - "1234:25826/udp"
+      - "5678:12201"
+      - "5678:12201/udp"
   volumes:
       - ./conf:/conf
   links:
       - elasticsearch:db
+# command: logstash -f /conf/gelf.conf
   command: logstash -f /conf/syslog.conf
 # command: logstash agent
 
